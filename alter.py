@@ -23,7 +23,7 @@ def compute(temp, aint):
         newitem = re.sub('(\d+)', lambda item: str(int(item.group(1)) + aint), item)
         if not newitem.__contains__("SET_MSG_ID"):
             continue
-        newitem = newitem[(newitem.find('_',0)+1):]
+        newitem = newitem[(newitem.find('_', 0) + 1):]
         newitem = newitem.replace("SET_MSG_ID(eMSG_TYPE_BATTLE,", "")
         newitem = newitem.replace("SET_MSG_ID(eMSG_TYPE_CENTER,", "")
         newitem = newitem.replace("SET_MSG_ID(eMSG_TYPE_CLIENT,", "")
@@ -37,11 +37,6 @@ def compute(temp, aint):
     return result
 
 
-
-
-
-
-
 if __name__ == '__main__':
     # alter("/Users/shuxinghu/Desktop/test/client_msg.h", "(eMSG_TYPE_CLIENT), (\d+)", "$1" + compute("$2"))
     # compute('battle_msg.h', 28672)
@@ -51,7 +46,7 @@ if __name__ == '__main__':
     # compute('game_msg.h', 16384)
     # compute('gate_msg.h', 12288)
     # compute('login_msg.h', 8192)
-    file_handle=open('/Users/shuxinghu/Desktop/test/test.txt',mode='w')
+    file_handle = open('/Users/shuxinghu/Desktop/test/test.txt', mode='w')
     file_handle.writelines(compute('login_msg.h', 8192))
     file_handle.writelines(compute('gate_msg.h', 12288))
     file_handle.writelines(compute('game_msg.h', 16384))
