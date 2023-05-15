@@ -35,4 +35,4 @@ def serializeMsg(pyFileName, msgName, msgJsonStr):
     bytes = msg.SerializeToString()
     # print ("bytes: ")
     # print (bytes)
-    return bytes;
+    return bytes
